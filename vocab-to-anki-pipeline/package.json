@@ -1,0 +1,10 @@
+{
+  "name": "vocab-to-anki-pipeline",
+  "version": "1.0.0",
+  "description": "Pipeline tự động Drive → Google Sheets → Gemini API → Anki",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/text.test.js",
+    "push": "clasp push"
+  }
+}
