@@ -6,7 +6,7 @@
 
 ## Vấn đề
 
-Học từ vựng chuyên ngành (ở đây là Project Management) đòi hỏi: đọc tài liệu → bôi đậm từ cần học → tra IPA/nghĩa → soạn ví dụ → nhập từng thẻ vào Anki. Thao tác thủ công, dễ trùng thẻ, và nếu để LLM tự "chọn từ quan trọng" thì kết quả không ổn định, bỏ sót hoặc thêm từ ngoài ý muốn.
+Học từ vựng chuyên ngành (ở đây là Project Management) đòi hỏi: đọc tài liệu → bôi đậm từ cần học → tra IPA/nghĩa → soạn ví dụ → nhập từng thẻ vào Anki để ôn tập ghi nhớ. Thao tác thủ công, dễ trùng thẻ, và nếu để LLM tự "chọn từ quan trọng" thì kết quả không ổn định, bỏ sót hoặc thêm từ ngoài ý muốn.
 
 ## Giải pháp
 
