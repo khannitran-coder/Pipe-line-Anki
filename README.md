@@ -1,6 +1,6 @@
 # Vocabulary → Anki Pipeline
 
-> Pipeline tự động biến tài liệu học tiếng Anh trên Google Drive thành thẻ Anki: **Drive → Google Sheets → Gemini API → Anki**. Từ vựng được trích bằng **quy tắc xác định (regex)**, LLM chỉ làm giàu dữ liệu — không được tự chọn từ.
+> Pipeline tự động biến tài liệu học tiếng Anh trên Google Drive thành thẻ Anki: **Drive → Google Sheets → Gemini API → Anki**. Danh sách từ cần học được trích bằng **quy tắc xác định (regex)**; LLM chỉ được giao việc làm giàu dữ liệu (prompt yêu cầu không tự thêm/bớt từ), đầu ra được đối chiếu số lượng.
 
 `Google Apps Script` · `Gemini API` · `AnkiConnect` · `Google Drive / Sheets`
 
@@ -36,13 +36,15 @@ Gemini (chỉ enrich) ──► reconcile số lượng ──► Google Sheet [
 
 ## Điểm kỹ thuật chính
 
-- **Deterministic extraction**: danh sách từ do regex quyết định → không bị LLM bỏ sót/thêm bừa, kết quả lặp lại được.
+- **Deterministic extraction**: danh sách từ yêu cầu do regex quyết định nên bước chọn từ không còn phụ thuộc LLM và lặp lại được. Việc Gemini có trả đúng từng mục hay không mới chỉ được đối chiếu theo số lượng (xem Hướng phát triển).
 - **Gộp run định dạng liên tiếp**: tránh lỗi `**a****b**` khi một cụm bị chia thành nhiều run định dạng trong Google Docs.
 - **Reconciliation**: so sánh số mục Gemini trả về với số mục yêu cầu; lệch thì log cảnh báo và giữ file lại để xử lý tiếp.
 - **Retry có backoff** khi Gemini trả 429/503 (tối đa 3 lần: 5s, 10s, 15s).
 - **Chống trùng 2 lớp**: lọc theo Sheet trước khi gọi API + `allowDuplicate: false` ở Anki.
 - **Quản lý secret**: API key, ID thư mục, URL ngrok nằm trong Script Properties, không hard-code; key gửi qua header thay vì query string.
 - **Logic thuần có unit test** (`src/Text.gs`, chạy bằng Node, không cần Apps Script).
+
+<!-- TODO: thêm mục "Kết quả" với số liệu thật bạn tự đo (số thẻ đã tạo, thời gian mỗi tài liệu trước/sau) và ảnh chụp Sheet/Anki vào thư mục docs/ -->
 
 ## Cấu trúc repo
 
