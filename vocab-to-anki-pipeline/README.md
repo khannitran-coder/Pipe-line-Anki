@@ -83,7 +83,6 @@ npm test
 
 ## Hạn chế đã biết
 
-- URL ngrok bản free đổi mỗi lần khởi động; cần cập nhật `ANKI_CONNECT_URL`.
 - Anki phải đang mở trên máy thì mới đẩy thẻ được.
 - Chưa đo benchmark chất lượng đầu ra của Gemini; mới có kiểm tra số lượng, chưa kiểm tra tính đúng của IPA/nghĩa.
 - File `.txt` không có định dạng nên phải tự gõ `**` quanh từ cần lấy.
