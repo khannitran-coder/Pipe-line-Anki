@@ -83,18 +83,7 @@ docs/architecture.md
 npm test
 ```
 
-## Hạn chế đã biết
-
-- Anki phải đang mở trên máy thì mới đẩy thẻ được.
-- Chưa đo benchmark chất lượng đầu ra của Gemini; mới có kiểm tra số lượng, chưa kiểm tra tính đúng của IPA/nghĩa.
-- File `.txt` không có định dạng nên phải tự gõ `**` quanh từ cần lấy.
-
-## Hướng phát triển
-
-- Kiểm tra từng mục trả về (khớp `word` với danh sách yêu cầu, không chỉ so số lượng).
-- Dùng structured output (`responseSchema`) của Gemini thay vì parse JSON từ text.
-- Time-driven trigger quét Drive định kỳ.
 
 ## Tác giả
 
-Trần Khánh Chi — dự án cá nhân, 07/2026 – nay.
+Trần Khánh Chi 
